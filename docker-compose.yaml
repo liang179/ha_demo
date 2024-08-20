@@ -15,3 +15,15 @@ services:
       - ./www/index1.html:/tmp/index.html
     working_dir: /tmp
     command: python -m http.server
+  web2:
+    image: python:alpine
+    volumes:
+      - ./www/index2.html:/tmp/index.html
+    working_dir: /tmp
+    command: python -m http.server
+  web3:
+    image: python:alpine
+    volumes:
+      - ./www/index3.html:/tmp/index.html
+    working_dir: /tmp
+    command: python -m http.server

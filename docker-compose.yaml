@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+  elb:
+    image: haproxy:alpine
+    ports:
+      - "8100:8100"
+      - "9000:9000"
+    volumes:
+      - ./haproxy:/usr/local/etc/haproxy
+  
+  web1:
+    image: python:alpine
+    volumes:
+      - ./www/index1.html:/tmp/index.html
+    working_dir: /tmp
+    command: python -m http.server
